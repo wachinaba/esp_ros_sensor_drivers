@@ -3,7 +3,7 @@
 #include <ros.h>
 #include <multizone_lidar_msgs/MultizoneRange.h>
 
-#define BAUDRATE 115200
+#define BAUDRATE 230400
 #define I2C_FREQ 1000000
 
 SparkFun_VL53L5CX imager[4] = {
@@ -183,5 +183,5 @@ void loop()
     }
   }
   nh.spinOnce();
-  delay(3);
+  delay(1);
 }
