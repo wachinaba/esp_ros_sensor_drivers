@@ -71,7 +71,7 @@ void VL53Manager::beginSensors()
   {
     digitalWrite(sensor_reset_pins_[i], LOW);
 
-    if (sensors_[i].imager.begin(sensor_addresses_[i]) == true)
+    if (sensors_[i].imager.begin(sensor_addresses_[i], *wire_) == true)
     {
       Serial.println("Sensor " + String(i) + " ready, address: " + String(sensors_[i].imager.getAddress(), HEX));
       sensors_[i].ready = true;
