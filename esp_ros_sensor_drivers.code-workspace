@@ -8,6 +8,9 @@
 		},
 		{
 			"path": "vl53l5cx_ros_driver"
+		},
+		{
+			"path": "ros_sensor_drivers"
 		}
 	],
 	"settings": {}
