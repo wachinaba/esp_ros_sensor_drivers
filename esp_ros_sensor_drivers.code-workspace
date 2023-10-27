@@ -5,6 +5,9 @@
 		},
 		{
 			"path": "pmw3901_ros_driver"
+		},
+		{
+			"path": "vl53l5cx_ros_driver"
 		}
 	],
 	"settings": {}
