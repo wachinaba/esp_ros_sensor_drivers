@@ -10,7 +10,7 @@ VL53Manager::~VL53Manager()
 {
 }
 
-void VL53Manager::begin()
+void VL53Manager::resetSensorAddresses()
 {
   // initialize reset pins
   for (auto reset_pin : sensor_reset_pins_)
@@ -62,7 +62,10 @@ void VL53Manager::begin()
     digitalWrite(sensor_reset_pins_[i], HIGH); // reset sensor i2c bus
   }
   delay(100);
+}
 
+void VL53Manager::beginSensors()
+{
   // begin sensors
   for (uint8_t i = 0; i < sensor_addresses_.size(); i++)
   {

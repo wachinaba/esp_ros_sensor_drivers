@@ -17,7 +17,13 @@ public:
   VL53Manager(TwoWire *wire, std::vector<uint8_t> sensor_addresses, std::vector<uint8_t> sensor_reset_pins);
   ~VL53Manager();
 
-  void begin();
+  void begin()
+  {
+    resetSensorAddresses();
+    beginSensors();
+  }
+  void beginSensors();
+  void resetSensorAddresses();
   std::vector<VL53L5CXSensor> getSensors() { return sensors_; }
 
 private:
