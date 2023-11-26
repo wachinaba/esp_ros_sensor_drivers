@@ -73,10 +73,11 @@ void vl53UpdateTask(void *pvParameters)
 
       if (imager.isDataReady())
       {
+        imager.getRangingData(&measurement_data);
         for (int j = 0; j < vl53_image_resolution; j++)
         {
-          // float distance = measurement_data.distance_mm[j] / 1000.0;
-          // range_arrays[i].ranges[j] = distance;
+          float distance = measurement_data.distance_mm[j] / 1000.0;
+          range_arrays[i].ranges[j] = distance;
         }
         range_arrays[i].header.stamp = nh.now();
         vl53_updated[i] = true;
@@ -146,7 +147,7 @@ void setup()
 
   Serial.println("VL53L5CX initialized");
 
-  for (auto range_array : range_arrays)
+  for (auto &range_array : range_arrays)
   {
     range_array.ranges = (float *)malloc(vl53_image_resolution * sizeof(float));
     range_array.ranges_length = vl53_image_resolution;
